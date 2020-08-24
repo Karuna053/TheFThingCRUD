@@ -85,7 +85,7 @@
                     The F Thing - Technical Test
                 </div>
                 <div class="links">
-                    <a href="{{ url('/create') }}"> Add User</a>
+                    <a href="{{ url('/create') }}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Profile</button></a>
                 </div>
             </div>
 
@@ -104,6 +104,7 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
+                        <form method="post" action="/delete/{{ $user->id }}" id="delete-user-id-{{ $user->id }}">@csrf</form>
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
@@ -111,11 +112,12 @@
                             <td>{{ $user->is_married }}</td>
                             <td>
                                 <a href="{{ url('/update/' . $user->id) }}"
-                                    <button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit Profile</button>
+                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit Profile</button>
                                 </a>
-                                <a href="{{ url('/delete/' . $user->id) }}"
-                                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete this profile?');"><i class="fa fa-trash"></i> Delete Profile</button>
-                                </a>
+                                <button type="submit" class="btn btn-danger btn-sm" form="delete-user-id-{{ $user->id }}" onclick="return confirm('Are you sure you want to delete this profile?');" value="Submit"><i class="fa fa-trash"></i> Delete Profile</button>
+                                <!-- <a href="{{ url('/delete/' . $user->id) }}"
+                                    <button type="submit" class="btn btn-outline-danger btn-sm" form="delete-user-id-{{ $user->id }}" onclick="return confirm('Are you sure you want to delete this profile?');" value="Submit"><i class="fa fa-trash"></i> Delete Profile</button>
+                                </a> -->
                             </td>
                         </tr>
                         @endforeach

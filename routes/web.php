@@ -17,8 +17,7 @@
 
 Route::get('/', 'HomepageController@view');
 
-Route::get('/create', function() {
-    return view('add_user');
-});
+Route::get('/create', 'UserController@createUserView');
+Route::post('/create/submit', 'UserController@createUser');
 
-Route::post('/create/submit', 'FormController@createUser');
+Route::post('/delete/{id}', 'UserController@deleteUser');

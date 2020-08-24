@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Styles -->
@@ -90,7 +91,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/') }}"> Back to Homepage</a>
+                    <a href="{{ url('/') }}"><button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-angle-double-left"></i> Back to Homepage</button></a>
                 </div>
             </div>
 
@@ -164,7 +165,7 @@
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Submit</button>
                 </form>
             </div>
 

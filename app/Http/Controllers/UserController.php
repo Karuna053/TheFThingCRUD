@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 
-class FormController extends Controller
+class UserController extends Controller
 {
+    public function createUserView(){
+        return view('add_user');
+    }
+
     public function createUser(Request $request){
         // Back-end Validation
         $validator = Validator::make($request->all(), [
@@ -62,10 +66,13 @@ class FormController extends Controller
             ]
         ]);
 
-        return dd($return_message, $user);
+        return redirect('/');
     }
 
-    private function convertToJSON($request){
-        return json_encode($request->all());
+    public function deleteUser($id){
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('/');
     }
 }
