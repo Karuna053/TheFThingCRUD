@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>The F Thing - Add User</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -84,9 +84,13 @@
     <body>
         <!-- <div class="<flex-center position-ref full-height"> -->
         <div>
-            <div class="col-md-12 text-center">
-                <div class="title m-b-md">
-                    The F Thing - Create
+            <div class="col-md-12 text-center m-b-md">
+                <div class="title">
+                    The F Thing - Add User
+                </div>
+
+                <div class="links">
+                    <a href="{{ url('/') }}"> Back to Homepage</a>
                 </div>
             </div>
 

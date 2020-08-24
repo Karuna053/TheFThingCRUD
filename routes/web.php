@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/create', function() {
-    return view('create_user');
+    return view('add_user');
 });
 
 Route::post('/create/submit', 'FormController@createUser');

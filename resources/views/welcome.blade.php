@@ -4,11 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>The F Thing - Technical Test</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Styles -->
@@ -75,35 +74,16 @@
 
     </head>
     <body>
-        <!-- <div class="<flex-center position-ref full-height"> -->
         <div>
-            <!-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->
-
-            <div class="col-md-12 text-center">
-                <div class="title m-b-md">
+            <div class="col-md-12 text-center m-b-md">
+                <div class="title">
                     The F Thing - Technical Test
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Create</a>
-                    <a href="https://laracasts.com">Update</a>
-                    <a href="https://laravel-news.com">Delete</a>
+                    <a href="{{ url('/create') }}"> Add User</a>
                 </div>
             </div>
-
-
         </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -111,10 +91,3 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
-
-<script>
-$("dataForm").submit(function() {
-    console.log($(this).formToJson());
-    return false;
-});
-</script>
