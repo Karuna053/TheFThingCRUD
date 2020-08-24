@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            @if ($users)
+            @if (!$users->isEmpty())
             <div class="col-md-10 offset-md-1">
                 <span class="bold">List of Users</span>
                 <table class="table">
@@ -127,7 +127,7 @@
                 </table>
             </div>
             @else
-            <div class="content">There is no available data to display. You can add data through the button(s) above.</div>
+            <div class="content m-b-md">There is no available data to display. You can add data through the button(s) above.</div>
             @endif
 
             @if (session()->has('json_flash_message'))
