@@ -102,31 +102,31 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Name *</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter name">
+                        <input type="text" class="form-control" name="name" placeholder="Enter name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+                        <input type="email" class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter email" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Enter password">
+                        <input type="password" class="form-control" name="password" placeholder="Enter password" required>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label>
                         <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm password">
-                    </div>
+                    </div> -->
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="gender">Gender</label>
-                                <select class="custom-select" name="gender">
-                                    <!-- <option selected>Choose...</option> -->
+                                <select class="custom-select" name="gender" required>
+                                    <option value="" selected>Choose...</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
@@ -136,10 +136,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="is_married">Is Married</label>
-                                <select class="custom-select" name="is_married">
-                                    <!-- <option selected>Choose...</option> -->
-                                    <option value="No">No</option>
+                                <select class="custom-select" name="is_married" required>
+                                    <option value="" selected>Choose...</option>
                                     <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
 
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea class="form-control" rows="3" name="address"></textarea>
+                        <textarea class="form-control" rows="3" name="address" required></textarea>
                     </div>
 
                     <!-- <div class="form-group">
