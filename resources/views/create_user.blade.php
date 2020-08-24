@@ -8,7 +8,6 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Styles -->
@@ -67,6 +66,14 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .red-text-alert {
+                color: #dc3545;
+            }
+
+            .red-border-alert {
+                border: 1px solid #dc3545;
+            }
         </style>
 
         <!-- Script -->
@@ -77,20 +84,6 @@
     <body>
         <!-- <div class="<flex-center position-ref full-height"> -->
         <div>
-            <!-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->
-
             <div class="col-md-12 text-center">
                 <div class="title m-b-md">
                     The F Thing - Create
@@ -100,79 +93,78 @@
             <div class="col-md-8 offset-md-2">
                 <form method="post" action="/create/submit" name="dataForm">
                     @csrf
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter name" required>
+                    <div class="form-group @error('name') red-text-alert @enderror">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control @error('name') red-border-alert @enderror" name="name" placeholder="Enter name" value="{{ old('name') }}" required>
+                        @error('name')
+                        <small>{{ $message }}</small>
+                        @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group @error('email') red-text-alert @enderror">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter email" required>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <input type="email" class="form-control @error('email') red-border-alert @enderror" name="email" placeholder="Enter email" value="{{ old('email') }}" required>
+                        @error('email')
+                        <small>{{ $message }}</small>
+                        @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group @error('password') red-text-alert @enderror">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Enter password" required>
+                        <input type="password" class="form-control @error('password') red-border-alert @enderror" name="password" placeholder="Enter password" required>
+                        @error('password')
+                        <small>{{ $message }}</small>
+                        @enderror
                     </div>
 
-                    <!-- <div class="form-group">
+                    <!-- <div class="form-group @error('name') red-text-alert @enderror">
                         <label for="confirmPassword">Confirm Password</label>
                         <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm password">
                     </div> -->
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group @error('gender') red-text-alert @enderror">
                                 <label for="gender">Gender</label>
-                                <select class="custom-select" name="gender" required>
-                                    <option value="" selected>Choose...</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
+                                <select class="custom-select @error('gender') red-border-alert @enderror" name="gender" required>
+                                    <option value="">Choose...</option>
+                                    <option value="Male" @if(old('gender') == "Male") selected @endif>Male</option>
+                                    <option value="Female" @if(old('gender') == "Female") selected @endif>Female</option>
                                 </select>
+                                @error('gender')
+                                <small>{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group @error('is_married') red-text-alert @enderror">
                                 <label for="is_married">Is Married</label>
-                                <select class="custom-select" name="is_married" required>
-                                    <option value="" selected>Choose...</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                <select class="custom-select @error('is_married') red-border-alert @enderror" name="is_married" value="{{ old('is_married') }}" required>
+                                    <option value="">Choose...</option>
+                                    <option value="Yes" @if(old('is_married') == "Yes") selected @endif>Yes</option>
+                                    <option value="No" @if(old('is_married') == "No") selected @endif>No</option>
                                 </select>
+                                @error('is_married')
+                                <small>{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group @error('address') red-text-alert @enderror">
                         <label for="address">Address</label>
-                        <textarea class="form-control" rows="3" name="address" required></textarea>
+                        <textarea class="form-control @error('address') red-border-alert @enderror" rows="3" name="address" value="{{ old('address') }}" required></textarea>
+                        @error('address')
+                        <small>{{ $message }}</small>
+                        @enderror
                     </div>
-
-                    <!-- <div class="form-group">
-                        <label for="inputGender">Gender</label>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div> -->
-                    <!-- <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div> -->
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
 
-                <!-- <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> -->
+
             </div>
         </div>
 
@@ -181,10 +173,3 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
-
-<script>
-$("dataForm").submit(function() {
-    console.log($(this).formToJson());
-    return false;
-});
-</script>
