@@ -17,7 +17,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|unique:users,email',
-            'password' => 'required',
+            'password' => 'required|confirmed',
             'gender' => 'required',
             'is_married' => 'required',
             'address' => 'required|max:50000'
@@ -27,6 +27,7 @@ class UserController extends Controller
             'email.required' => 'This field is required.',
             'email.unique' => 'This email is not available.',
             'password.required' => 'This field is required.',
+            'password.unique' => 'These passwords do not match.',
             'gender.required' => 'This field is required.',
             'is_married.required' => 'This field is required.',
             'address.required' => 'This field is required.',
@@ -38,7 +39,7 @@ class UserController extends Controller
         }
 
         // Saya convert data dari front-end ke JSON di sini, sesuai technical testnya, tapi saya bingung
-        // kebutuhannya buat apa. Di PHP kalo butuh format JSON, data dari front-end cukup tinggal pakao
+        // kebutuhannya buat apa. Di PHP kalo butuh format JSON, data dari front-end cukup tinggal pakai
         // json_encode. Terus, kalau JSON-nya perlu didecode buat dimasukin ke database, tinggal pakai
         // json_decode.
         $json_request = json_encode($request->all());

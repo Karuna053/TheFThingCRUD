@@ -100,7 +100,7 @@
                     @csrf
                     <div class="form-group @error('name') red-text-alert @enderror">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control @error('name') red-border-alert @enderror" name="name" placeholder="Enter name" value="{{ old('name') ?? $user->name }}" required>
+                        <input type="text" class="form-control @error('name') red-border-alert @enderror" name="name" value="{{ old('name') ?? $user->name }}" required>
                         @error('name')
                         <small>{{ $message }}</small>
                         @enderror
@@ -108,15 +108,15 @@
 
                     <div class="form-group @error('email') red-text-alert @enderror">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control @error('email') red-border-alert @enderror" name="email" placeholder="Enter email" value="{{ old('email') ?? $user->email }}" required>
+                        <input type="email" class="form-control @error('email') red-border-alert @enderror" name="email" value="{{ old('email') ?? $user->email }}" required>
                         @error('email')
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="form-group @error('password') red-text-alert @enderror">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control @error('password') red-border-alert @enderror" name="password" placeholder="Enter password" required>
+                        <label for="password">Password (leave blank if unchanged)</label>
+                        <input type="password" class="form-control @error('password') red-border-alert @enderror" name="password" required>
                         @error('password')
                         <small>{{ $message }}</small>
                         @enderror
