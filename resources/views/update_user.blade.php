@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/') }}"><button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-angle-double-left"></i> Back to Homepage</button></a>
+                    <a href="{{ url('/') }}"><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-left"></i> Back to Homepage</button></a>
                 </div>
             </div>
 
@@ -132,11 +132,6 @@
                         @enderror
                     </div>
 
-                    <!-- <div class="form-group @error('name') red-text-alert @enderror">
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm password">
-                    </div> -->
-
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group @error('gender') red-text-alert @enderror">
@@ -175,7 +170,7 @@
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Update User</button>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Update User</button>
                 </form>
             </div>
 

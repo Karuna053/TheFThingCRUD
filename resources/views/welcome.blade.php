@@ -85,7 +85,7 @@
                     The F Thing - Technical Test
                 </div>
                 <div class="links">
-                    <a href="{{ url('/create') }}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add User</button></a>
+                    <a href="{{ url('/create') }}"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Add User</button></a>
                 </div>
             </div>
 
@@ -128,6 +128,13 @@
             </div>
             @else
             <div class="content">There is no available data to display. You can add data through the button(s) above.</div>
+            @endif
+
+            @if (session()->has('json_flash_message'))
+            <div class="col-md-10 offset-md-1">
+                <span class="bold">Return Message: </span>
+                {{ session()->get('json_flash_message') }}
+            </div>
             @endif
         </div>
 

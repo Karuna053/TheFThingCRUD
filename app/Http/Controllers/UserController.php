@@ -63,11 +63,17 @@ class UserController extends Controller
                 'message' => 'User has been successfully added to the database.'
             ],
             'result' => [
-                //
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'password' => $user->password,
+                'gender' => $user->gender,
+                'is_married' => $user->is_married,
+                'address' => $user->address,
             ]
         ]);
 
-        return redirect('/');
+        return redirect('/')->with('json_flash_message', $json_flash_message);
     }
 
     public function updateUserView($id){
@@ -129,11 +135,17 @@ class UserController extends Controller
                 'message' => 'User has been successfully updated in the database.'
             ],
             'result' => [
-                //
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'password' => $user->password,
+                'gender' => $user->gender,
+                'is_married' => $user->is_married,
+                'address' => $user->address,
             ]
         ]);
 
-        return redirect('/');
+        return redirect('/')->with('json_flash_message', $json_flash_message);
     }
 
 
@@ -141,6 +153,18 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect('/');
+        // Building JSON message to flash.
+        $json_flash_message = json_encode([
+            'status' => [
+                'code' => http_response_code(),
+                'response' => 'success',
+                'message' => 'User has been successfully deleted from the database.'
+            ],
+            'result' => [
+                //
+            ],
+        ]);
+
+        return redirect('/')->with('json_flash_message', $json_flash_message);
     }
 }

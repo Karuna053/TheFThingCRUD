@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/') }}"><button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-angle-double-left"></i> Back to Homepage</button></a>
+                    <a href="{{ url('/') }}"><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-left"></i> Back to Homepage</button></a>
                 </div>
             </div>
 
@@ -168,7 +168,7 @@
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Create User</button>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Create User</button>
                 </form>
             </div>
 
