@@ -114,7 +114,7 @@
                                     <button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit Profile</button>
                                 </a>
                                 <a href="{{ url('/delete/' . $user->id) }}"
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> Delete Profile</button>
+                                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete this profile?');"><i class="fa fa-trash"></i> Delete Profile</button>
                                 </a>
                             </td>
                         </tr>
