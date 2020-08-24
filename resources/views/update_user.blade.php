@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>The F Thing - Add User</title>
+        <title>The F Thing - Update User</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -87,7 +87,7 @@
         <div>
             <div class="col-md-12 text-center m-b-md">
                 <div class="title">
-                    The F Thing - Add User
+                    The F Thing - Update User
                 </div>
 
                 <div class="links">
@@ -96,11 +96,11 @@
             </div>
 
             <div class="col-md-8 offset-md-2">
-                <form method="post" action="/create/submit" name="dataForm">
+                <form method="post" action="/update/{{ $user->id }}/submit" name="dataForm">
                     @csrf
                     <div class="form-group @error('name') red-text-alert @enderror">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control @error('name') red-border-alert @enderror" name="name" placeholder="Enter name" value="{{ old('name') }}" required>
+                        <input type="text" class="form-control @error('name') red-border-alert @enderror" name="name" placeholder="Enter name" value="{{ old('name') ?? $user->name }}" required>
                         @error('name')
                         <small>{{ $message }}</small>
                         @enderror
@@ -108,7 +108,7 @@
 
                     <div class="form-group @error('email') red-text-alert @enderror">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control @error('email') red-border-alert @enderror" name="email" placeholder="Enter email" value="{{ old('email') }}" required>
+                        <input type="email" class="form-control @error('email') red-border-alert @enderror" name="email" placeholder="Enter email" value="{{ old('email') ?? $user->email }}" required>
                         @error('email')
                         <small>{{ $message }}</small>
                         @enderror
@@ -133,8 +133,8 @@
                                 <label for="gender">Gender</label>
                                 <select class="custom-select @error('gender') red-border-alert @enderror" name="gender" required>
                                     <option value="">Choose...</option>
-                                    <option value="Male" @if(old('gender') == "Male") selected @endif>Male</option>
-                                    <option value="Female" @if(old('gender') == "Female") selected @endif>Female</option>
+                                    <option value="Male" @if(old('gender') ?? $user->gender == "Male") selected @endif>Male</option>
+                                    <option value="Female" @if(old('gender') ?? $user->gender == "Female") selected @endif>Female</option>
                                 </select>
                                 @error('gender')
                                 <small>{{ $message }}</small>
@@ -147,8 +147,8 @@
                                 <label for="is_married">Is Married</label>
                                 <select class="custom-select @error('is_married') red-border-alert @enderror" name="is_married" value="{{ old('is_married') }}" required>
                                     <option value="">Choose...</option>
-                                    <option value="Yes" @if(old('is_married') == "Yes") selected @endif>Yes</option>
-                                    <option value="No" @if(old('is_married') == "No") selected @endif>No</option>
+                                    <option value="Yes" @if(old('is_married') ?? $user->is_married == "Yes") selected @endif>Yes</option>
+                                    <option value="No" @if(old('is_married') ?? $user->is_married == "No") selected @endif>No</option>
                                 </select>
                                 @error('is_married')
                                 <small>{{ $message }}</small>
@@ -160,12 +160,12 @@
 
                     <div class="form-group @error('address') red-text-alert @enderror">
                         <label for="address">Address</label>
-                        <textarea class="form-control @error('address') red-border-alert @enderror" rows="3" name="address" required>{{ old('address') }}</textarea>
+                        <textarea class="form-control @error('address') red-border-alert @enderror" rows="3" name="address" required>{{ old('address') ?? $user->address }}</textarea>
                         @error('address')
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Create User</button>
+                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Update User</button>
                 </form>
             </div>
 

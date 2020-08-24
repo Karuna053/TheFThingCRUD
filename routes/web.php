@@ -20,4 +20,7 @@ Route::get('/', 'HomepageController@view');
 Route::get('/create', 'UserController@createUserView');
 Route::post('/create/submit', 'UserController@createUser');
 
+Route::get('/update/{id}', 'UserController@updateUserView');
+Route::post('/update/{id}/submit', 'UserController@updateUser');
+
 Route::post('/delete/{id}', 'UserController@deleteUser');

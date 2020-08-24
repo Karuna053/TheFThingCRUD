@@ -69,6 +69,14 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function updateUserView($id){
+        $user = User::find($id);
+
+        return view('update_user', [
+            'user' => $user,
+        ]);
+    }
+
     public function deleteUser($id){
         $user = User::find($id);
         $user->delete();

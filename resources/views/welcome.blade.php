@@ -85,12 +85,12 @@
                     The F Thing - Technical Test
                 </div>
                 <div class="links">
-                    <a href="{{ url('/create') }}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Profile</button></a>
+                    <a href="{{ url('/create') }}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add User</button></a>
                 </div>
             </div>
 
             @if ($users)
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-10 offset-md-1">
                 <span class="bold">List of Users</span>
                 <table class="table">
                     <thead>
@@ -99,6 +99,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">Gender</th>
                             <th scope="col">Married</th>
+                            <th scope="col">Address</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -110,13 +111,14 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->gender }}</td>
                             <td>{{ $user->is_married }}</td>
+                            <td>{{ $user->address }}</td>
                             <td>
                                 <a href="{{ url('/update/' . $user->id) }}"
-                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit Profile</button>
+                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Update User</button>
                                 </a>
-                                <button type="submit" class="btn btn-danger btn-sm" form="delete-user-id-{{ $user->id }}" onclick="return confirm('Are you sure you want to delete this profile?');" value="Submit"><i class="fa fa-trash"></i> Delete Profile</button>
+                                <button type="submit" class="btn btn-danger btn-sm" form="delete-user-id-{{ $user->id }}" onclick="return confirm('Are you sure you want to delete this user?');" value="Submit"><i class="fa fa-trash"></i> Delete User</button>
                                 <!-- <a href="{{ url('/delete/' . $user->id) }}"
-                                    <button type="submit" class="btn btn-outline-danger btn-sm" form="delete-user-id-{{ $user->id }}" onclick="return confirm('Are you sure you want to delete this profile?');" value="Submit"><i class="fa fa-trash"></i> Delete Profile</button>
+                                    <button type="submit" class="btn btn-outline-danger btn-sm" form="delete-user-id-{{ $user->id }}" onclick="return confirm('Are you sure you want to delete this user?');" value="Submit"><i class="fa fa-trash"></i> Delete User</button>
                                 </a> -->
                             </td>
                         </tr>
