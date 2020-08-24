@@ -136,7 +136,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="is_married">Is Married</label>
-                                <select class="custom-select" name="maritalStatus">
+                                <select class="custom-select" name="is_married">
                                     <!-- <option selected>Choose...</option> -->
                                     <option value="No">No</option>
                                     <option value="Yes">Yes</option>
