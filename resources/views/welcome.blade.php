@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Styles -->
@@ -66,6 +67,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .bold {
+                font-weight: bold;
+            }
         </style>
 
         <!-- Script -->
@@ -79,11 +84,47 @@
                 <div class="title">
                     The F Thing - Technical Test
                 </div>
-
                 <div class="links">
                     <a href="{{ url('/create') }}"> Add User</a>
                 </div>
             </div>
+
+            @if ($users)
+            <div class="col-md-8 offset-md-2">
+                <span class="bold">List of Users</span>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Married</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->gender }}</td>
+                            <td>{{ $user->is_married }}</td>
+                            <td>
+                                <a href="{{ url('/update/' . $user->id) }}"
+                                    <button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit Profile</button>
+                                </a>
+                                <a href="{{ url('/delete/' . $user->id) }}"
+                                    <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> Delete Profile</button>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @else
+            <div class="content">There is no available data to display. You can add data through the button(s) above.</div>
+            @endif
         </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
