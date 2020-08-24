@@ -98,6 +98,8 @@
             <div class="col-md-8 offset-md-2">
                 <form method="post" action="/update/{{ $user->id }}/submit" name="dataForm">
                     @csrf
+                    <input type="hidden" name="id" value="{{ $user->id }}" />
+
                     <div class="form-group @error('name') red-text-alert @enderror">
                         <label for="name">Name</label>
                         <input type="text" class="form-control @error('name') red-border-alert @enderror" name="name" value="{{ old('name') ?? $user->name }}" required>
@@ -108,15 +110,23 @@
 
                     <div class="form-group @error('email') red-text-alert @enderror">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control @error('email') red-border-alert @enderror" name="email" value="{{ old('email') ?? $user->email }}" required>
+                        <input type="email" class="form-control @error('email') red-border-alert @enderror" name="email" value="{{ old('email') ?? $user->email }}">
                         @error('email')
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="form-group @error('password') red-text-alert @enderror">
-                        <label for="password">Password (leave blank if unchanged)</label>
-                        <input type="password" class="form-control @error('password') red-border-alert @enderror" name="password" required>
+                        <label for="password">Password <small>(leave blank if unchanged)</small></label>
+                        <input type="password" class="form-control @error('password') red-border-alert @enderror" name="password">
+                        @error('password')
+                        <small>{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group @error('password') red-text-alert @enderror">
+                        <label for="password_confirmation">Confirm Password <small>(leave blank if unchanged)</small></label>
+                        <input type="password" class="form-control @error('password') red-border-alert @enderror" name="password_confirmation">
                         @error('password')
                         <small>{{ $message }}</small>
                         @enderror
